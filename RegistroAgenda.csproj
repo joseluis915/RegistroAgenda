@@ -15,6 +15,7 @@
 		<None Remove="Resources\Guardar.png" />
 		<None Remove="Resources\Home.png" />
 		<None Remove="Resources\Limpiar.png" />
+		<None Remove="Resources\Mas.png" />
 		<None Remove="Resources\Registro.png" />
 		<None Remove="Resources\Usuario.png" />
 	</ItemGroup>
@@ -40,6 +41,9 @@
 		</Resource>
 		<Resource Include="Resources\Limpiar.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Mas.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Resources\Registro.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

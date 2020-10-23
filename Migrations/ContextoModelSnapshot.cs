@@ -45,30 +45,55 @@ namespace RegistroAgenda.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ContactoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("TEXT");
 
+                    b.HasKey("EventoId");
+
+                    b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("RegistroAgenda.Entidades.EventosDetalle", b =>
+                {
+                    b.Property<int>("EventoDetalle")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ContactoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EventoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Lugar")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NombreEvento")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TipoEvento")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("EventoId");
+                    b.HasKey("EventoDetalle");
 
                     b.HasIndex("ContactoId");
 
-                    b.ToTable("Eventos");
+                    b.HasIndex("EventoId");
+
+                    b.ToTable("EventosDetalle");
                 });
 
-            modelBuilder.Entity("RegistroAgenda.Entidades.Eventos", b =>
+            modelBuilder.Entity("RegistroAgenda.Entidades.EventosDetalle", b =>
                 {
                     b.HasOne("RegistroAgenda.Entidades.Contactos", "contactos")
                         .WithMany()
                         .HasForeignKey("ContactoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RegistroAgenda.Entidades.Eventos", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

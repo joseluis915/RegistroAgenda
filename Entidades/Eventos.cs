@@ -12,13 +12,9 @@ namespace RegistroAgenda.Entidades
     {
         [Key]
         public int EventoId { get; set; }
-        public int ContactoId { get; set; }
-        public String TipoEvento { get; set; }
         public DateTime FechaInicio { get; set; } = DateTime.Now;
-        public String Lugar { get; set; }
 
-        //———————————————————————————[ ForeingKeys ]———————————————————————————
-        [ForeignKey("ContactoId")]
-        public Contactos contactos { get; set; }
+        [ForeignKey("EventoId")]
+        public virtual List<EventosDetalle> Detalle { get; set; } = new List<EventosDetalle>();
     }
 }

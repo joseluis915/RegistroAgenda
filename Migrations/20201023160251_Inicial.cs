@@ -29,35 +29,63 @@ namespace RegistroAgenda.Migrations
                 {
                     EventoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ContactoId = table.Column<int>(nullable: false),
-                    TipoEvento = table.Column<string>(nullable: true),
-                    FechaInicio = table.Column<DateTime>(nullable: false),
-                    Lugar = table.Column<string>(nullable: true)
+                    FechaInicio = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Eventos", x => x.EventoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventosDetalle",
+                columns: table => new
+                {
+                    EventoDetalle = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    EventoId = table.Column<int>(nullable: false),
+                    ContactoId = table.Column<int>(nullable: false),
+                    TipoEvento = table.Column<string>(nullable: true),
+                    NombreEvento = table.Column<string>(nullable: true),
+                    Lugar = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventosDetalle", x => x.EventoDetalle);
                     table.ForeignKey(
-                        name: "FK_Eventos_Contactos_ContactoId",
+                        name: "FK_EventosDetalle_Contactos_ContactoId",
                         column: x => x.ContactoId,
                         principalTable: "Contactos",
                         principalColumn: "ContactoId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EventosDetalle_Eventos_EventoId",
+                        column: x => x.EventoId,
+                        principalTable: "Eventos",
+                        principalColumn: "EventoId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Eventos_ContactoId",
-                table: "Eventos",
+                name: "IX_EventosDetalle_ContactoId",
+                table: "EventosDetalle",
                 column: "ContactoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventosDetalle_EventoId",
+                table: "EventosDetalle",
+                column: "EventoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Eventos");
+                name: "EventosDetalle");
 
             migrationBuilder.DropTable(
                 name: "Contactos");
+
+            migrationBuilder.DropTable(
+                name: "Eventos");
         }
     }
 }
