@@ -25,12 +25,6 @@
                 </MenuItem>
                 <!--—————————————————————————————————————————[ Consultas ]—————————————————————————————————————————-->
                 <MenuItem Header="Consultas">
-                    <MenuItem x:Name="cContactoMenuItem" Click="cContactoMenuItem_Click" Header="Consultar Contacto" Foreground="Black">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/Usuario.png"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
                     <MenuItem x:Name="cEventoMenuItem" Click="cEventoMenuItem_Click" Header="Consultar Evento" Foreground="Black">
                         <MenuItem.Icon>
                             <Image Source="/Resources/Fecha.png"/>

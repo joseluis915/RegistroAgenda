@@ -23,12 +23,6 @@ namespace RegistroAgenda
             rEventos.Show();
         }
 
-        private void cContactoMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            cContactos cContactos = new cContactos();
-            cContactos.Show();
-        }
-
         private void cEventoMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cEventos cEventos = new cEventos();
