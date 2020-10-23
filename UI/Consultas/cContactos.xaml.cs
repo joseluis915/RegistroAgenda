@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 namespace RegistroAgenda.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for cContactos.xaml
+    /// Interaction logic for cEventos.xaml
     /// </summary>
     public partial class cContactos : Window
     {

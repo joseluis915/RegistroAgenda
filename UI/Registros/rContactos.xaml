@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroAgenda.UI.Registros"
         mc:Ignorable="d"
-        Title="rContactos" Height="450" Width="800">
+        Title="Registro Contacto" Height="470" Width="500" WindowStartupLocation="CenterScreen" Icon="/Resources/Agendar.png" ResizeMode="CanMinimize">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" Margin="15">
+            <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
+            <Label Content="Contacto Id" FontWeight="Bold" FontSize="15"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="ContactoIdTextBox" Text="{Binding ContactoId}" Width="120" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="ContactoIdTextBox_TextChanged"/>
+                <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
+                <Button x:Name="BuscarButton" Margin="100,0,0,0" Width="110" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="/Resources/Buscar.png" />
+                        <Label Content="Buscar" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <!--——————————————————————————————————————————————[ NickName ]——————————————————————————————————————————————-->
+            <Label Content="NickName" FontWeight="Bold" Margin="0,10,0,0" />
+            <TextBox x:Name="NickNameTextBox" Text="{Binding NickName}" Height="30" VerticalContentAlignment="Center"/>
+            <!--——————————————————————————————————————————————[ NombreCompleto ]——————————————————————————————————————————————-->
+            <Label Content="NombreCompleto" FontWeight="Bold" Margin="0,5,0,0"/>
+            <TextBox x:Name="NombreCompletoTextBox" Text="{Binding NombreCompleto}" Height="30" VerticalContentAlignment="Center"/>
+            <!--——————————————————————————————————————————————[ Telefono ]——————————————————————————————————————————————-->
+            <Label Content="Telefono" FontWeight="Bold" Margin="0,5,0,0"/>
+            <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" Height="30" MaxLength="10" TextChanged="TelefonoTextBox_TextChanged" VerticalContentAlignment="Center"/>
+            <!--——————————————————————————————————————————————[ FechaCreacion ]——————————————————————————————————————————————-->
+            <Label Content="Fecha Creación" FontWeight="Bold" Margin="0,5,0,0"/>
+            <DatePicker x:Name="FechaCreacionDatePicker" SelectedDate="{Binding FechaCreacion}" Height="30" VerticalContentAlignment="Center" IsEnabled="False" />
+
+            <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
+            <StackPanel Orientation="Horizontal" Height="35" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="110">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="25" Source="/Resources/Limpiar.png"/>
+                        <Label Content="Limpiar" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <!--——————————————————————————————————————————————[ BOTON GUARDAR ]——————————————————————————————————————————————-->
+                <Button x:Name="GuardarButton" Click="GuardarButton_Click" Width="110" Margin="50,0,0,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="/Resources/Guardar.png"/>
+                        <Label Content="Guardar" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <!--——————————————————————————————————————————————[ BOTON ELIMINAR ]——————————————————————————————————————————————-->
+                <Button x:Name="EliminarButton" Click="EliminarButton_Click" Width="110" Margin="50,0,0,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="/Resources/Eliminar.png"/>
+                        <Label Content="Eliminar" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <!--——————————————————————————————————————————————[ INFORMACION ]——————————————————————————————————————————————-->
+            <Label Content="Creado: 23/10/2020       —      ©2020   José Luis — 2015-0565" 
+                   FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#99000000" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Bottom" />
+            <!--————————————————————————————————————————————————————————————————————————————————————————————————————————————-->
+        </StackPanel>
     </Grid>
 </Window>

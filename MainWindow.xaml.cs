@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using RegistroAgenda.UI.Consultas;
+using RegistroAgenda.UI.Registros;
 
 namespace RegistroAgenda
 {
@@ -24,22 +13,26 @@ namespace RegistroAgenda
 
         private void rContactoMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rContactos rContactos = new rContactos();
+            rContactos.Show();
         }
 
         private void rEventoMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rEventos rEventos = new rEventos();
+            rEventos.Show();
         }
 
         private void cContactoMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cContactos cContactos = new cContactos();
+            cContactos.Show();
         }
 
         private void cEventoMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cEventos cEventos = new cEventos();
+            cEventos.Show();
         }
 
         private void InformacionMenuItem_Click(object sender, RoutedEventArgs e)
